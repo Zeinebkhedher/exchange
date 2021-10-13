@@ -98,12 +98,14 @@
  <script type="module">
 
 
-//let date = document.querySelector("#date").value.substr(0,10)
-//let part1=" http://api.exchangeratesapi.io/v1/"
-//let part2="?access_key=c1432e7cf4c539b0389ad17d12b87054"
 
 
-let url ="http://api.exchangeratesapi.io/v1/latest?access_key=c1432e7cf4c539b0389ad17d12b87054"
+let date = document.querySelector("#date").value.substr(0,10)
+let part1=" http://api.exchangeratesapi.io/v1/"
+let part2="?access_key=c1432e7cf4c539b0389ad17d12b87054"
+
+
+let url =part1.concat(date,part2)
     console.log(url)
     let button=document.querySelector("button")
 	let rates
