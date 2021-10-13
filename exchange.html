@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+	body{
+		background-image: url(planejamento-financeiro.JPEG);
+		background-repeat: no-repeat;
+		margin-left: 40px;
+		
+		
+	}
+	img {
+		margin-left: 1300px;
+		height: 80px;
+		width: 150px;
+	border-radius: 30px;}
+		
+	h1{
+		margin-left: 500px;
+		color: #FD3F92;
+        size:80px;
+		margin-top: 120px;
+	}
+	div {
+		margin-top: 40px;
+		margin-left: 750px;
+		width: 550px;
+		height: 400px;
+		background: transparent ; 
+		border-radius: 20px;
+	}
+	select {
+		margin-left: 380px;
+		border-radius: 25px;
+		height: 50px;
+		width: 120px;
+		background: transparent ; 
+		margin-top: 10px;
+	}
+	input {
+		width: 350px;
+		height: 50px;
+		border-radius: 25px;
+		margin-top: 50px;
+		margin-left: 60px;
+		background: transparent ; 
+	}
+	:-ms-input-placeholder {
+		align-content: center;
+		color:red;
+	}
+	button { margin-left: 200px;
+		width: 190px;
+		height: 40px;
+		border-radius: 25px; 
+		background-color: #BBD2E1  ;
+		border-color:white ;
+
+
+	}
+	button :hover { 
+	transition : 0.4s; 
+	background: orange; 
+	}
+	p{
+		
+		size :100px;
+	     color: #34C924;	}
+
+		 marquee{font-size:200%;}	 
+</style>
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>exchangeRate</title>
+</head>
+
+<body>
+	<img src="unnamed.GIF"/>
+	<center>
+	<h1>Rate Exchange Converter</h1> </center>
+	<div >
+    <input type="number" placeholder="entrer le montant" required="required" onblur="verifmontant();" id="montant"><span id="s1"></span>   <br>
+    <input type="Date" id="date" placeholder="entrer la date " required ">
+	<select name="" id="">
+		<option value="TND">TND</option>
+		<option value="USD">USD</option>
+		<option value="EGP">EGP</option>
+	</select> <br> <br><br>
+	<button>Convert</button>
+	<marquee><p class="result"></marquee>
+	</div>
+
+	</p>
+</body>
+
+
+ <script type="module">
+
+
+//let date = document.querySelector("#date").value.substr(0,10)
+//let part1=" http://api.exchangeratesapi.io/v1/"
+//let part2="?access_key=c1432e7cf4c539b0389ad17d12b87054"
+
+
+let url ="http://api.exchangeratesapi.io/v1/latest?access_key=c1432e7cf4c539b0389ad17d12b87054"
+    console.log(url)
+    let button=document.querySelector("button")
+	let rates
+	fetch(url)
+		.then(response => response.json())
+		.then(data => {
+			let { TND, USD, EGP } = data.rates
+			console.log(TND, USD, EGP)
+		})
+		.catch(error => {
+			console.log("error :", error)
+		})
+		button.onclick = () => {
+		let value = document.querySelector("#montant").value
+		let exchangeRate = document.querySelector("select").value
+		document.querySelector(".result").innerText = `${value} en EUR is ${value * rates[exchangeRate]} en ${exchangeRate}`
+	}
+
+</script>
+
+<script type="text/javascript">
+
+let date = document.querySelector("#date").value
+  
+
+    function verifmontant(){
+               let  montant =document.getElementById("montant").value ;
+               if((montant=="") )
+                { document.getElementById("s1").innerHTML=" * champ obligatoire";
+                document.getElementById("s1").style.color = "red";
+                document.getElementById("montant").style.borderColor = "red";
+                }
+               
+               	else 
+               { document.getElementById("s1").innerHTML=" &#10004";
+                 document.getElementById("s1").style.color = "green"; 
+                 document.getElementById("montant").style.borderColor = "#9EFD38";
+                }
+               }
+           
+
+</script>
+
+</html>

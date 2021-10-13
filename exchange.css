@@ -1,0 +1,31 @@
+/*let y = date.getYear()
+let m =date.getMonth()
+let j =birthday.getDate()
+*/
+
+  /*  let url = "http://api.exchangeratesapi.io/v1/"+date+"?access_key=876fddb6aa3434033523b5285d1992f5"
+    console.log(url)
+    
+	let rates
+	fetch(url)
+		.then(response => response.json())
+		.then(data => {
+			rates = data.rates
+		})
+		.catch(error => {
+			console.log("error :", error)
+		})
+
+	async function getData() {
+
+
+	}
+
+	document.querySelector("button").onclick = () => {
+		let value = document.querySelector("input").value
+		let exchangeRate = document.querySelector("select").value
+		document.querySelector(".result").innerText = `${value} en EUR is ${value * rates[exchangeRate]} en ${exchangeRate}`
+	}
+
+   */ 
+   http://api.exchangeratesapi.io/v1/?access_key=c1432e7cf4c539b0389ad17d12b87054
